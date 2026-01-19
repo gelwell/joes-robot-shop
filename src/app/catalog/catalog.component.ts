@@ -197,22 +197,23 @@ export class CatalogComponent {
     console.log(`Adding ${product.name} to cart. `);
   }
 
-  getDiscountedClasses(product: IProduct) {
-       // discount: product && product.discount > 0,
-      if (product.discount > 0) return ['strikethrough'];
-      else return [];
-  } 
-
-  getImageUrl(product: IProduct) {    
-    if (!product) return '';
-    // return './assets/images/robot-parts/' + this.product.imageName;
-    return 'assets/images/robot-parts/' + product.imageName;
-  }
-
   getFilteredProducts() {
-      return this.filter === '' 
-      ? this.products 
+    return this.filter === ''
+      ? this.products
       // : this.products.filter((product) => product.category === this.filter);
-      : this.products.filter((product:any) => product.category === this.filter);
+      : this.products.filter((product: any) => product.category === this.filter);
   }
+
+  // getDiscountedClasses(product: IProduct) {
+  //      // discount: product && product.discount > 0,
+  //     if (product.discount > 0) return ['strikethrough'];
+  //     else return [];
+  // } 
+
+  // // getImageUrl(product: IProduct) {    
+  // //   if (!product) return '';
+  // //   // return './assets/images/robot-parts/' + this.product.imageName;
+  // //   return 'assets/images/robot-parts/' + product.imageName;
+  // // }
+
 }
