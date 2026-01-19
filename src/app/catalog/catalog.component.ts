@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { IProduct } from './product.model';
+import { CartService } from '../cart.service';
 
 @Component({
   selector: 'bot-catalog',
@@ -10,8 +11,10 @@ export class CatalogComponent {
   // products: IProduct[];
   products: any;
   filter: string = '';
-  cart: IProduct[] = [];
+  //cart: IProduct[] = [];
+  private cartSvc: CartService = inject(CartService);
 
+  //constructor(private cartSvc: CartService) {
   constructor() {
     this.products =
       [
@@ -193,8 +196,9 @@ export class CatalogComponent {
   }
 
   addToCart(product: IProduct) {
-    this.cart.push(product);
-    console.log(`Adding ${product.name} to cart. `);
+    //this.cart.push(product);
+    this.cartSvc.add(product);
+    console.log(`addToCart ${product.name} to cart. `);
   }
 
   getFilteredProducts() {
@@ -217,3 +221,5 @@ export class CatalogComponent {
   // // }
 
 }
+
+
