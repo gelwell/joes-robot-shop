@@ -8,7 +8,9 @@ import { SiteHeaderComponent } from './site-header/site-header.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { CartComponent } from './cart/cart.component';
 import { CartService } from './cart/cart.service';
-import { HttpClientModule } from '@angular/common/http'; // Import HttpClientModule
+import { HttpClientModule } from '@angular/common/http';
+import { AppRoutingModule } from './app-routing.module';
+import { RouterModule } from "@angular/router"; // Import HttpClientModule
 
 
 @NgModule({
@@ -22,8 +24,10 @@ import { HttpClientModule } from '@angular/common/http'; // Import HttpClientMod
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
-  ],
+    HttpClientModule,
+    AppRoutingModule,
+    RouterModule
+],
   providers: [CartService],
   bootstrap: [AppComponent]
 })
