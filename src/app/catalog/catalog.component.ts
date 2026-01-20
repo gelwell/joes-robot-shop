@@ -2,7 +2,7 @@ import { Component, inject } from '@angular/core';
 import { IProduct } from './product.model';
 import { CartService } from '../cart/cart.service';
 //import { ProductService } from '../product.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'bot-catalog',
@@ -14,12 +14,19 @@ export class CatalogComponent {
   products: any;
   filter: string = '';
   cart: IProduct[] = [];
-  private cartSvc: CartService = inject(CartService);
+  //private cartSvc: CartService = inject(CartService);
+  //private route: ActivatedRoute;
 
-  //constructor(private cartSvc: CartService) {
+
   constructor(
-    //private productSvc: ProductService, 
-    private router: Router) {
+    private cartSvc: CartService,
+    private router: Router,
+    private route: ActivatedRoute
+  )
+  //constructor(
+  //private productSvc: ProductService, 
+
+  {
     this.products =
       [
         {
@@ -198,6 +205,20 @@ export class CatalogComponent {
         },
       ];
   }
+
+  ngOnInit() {
+    // this.route.paramMap.subscribe((params) => {
+    //   const filterParam = params.get('filter');
+    //   this.filter = filterParam ? filterParam : '';
+    // this ProductSvc.getProducts().subscribe((data: IProduct[]) => {
+    //   this.products = products;
+    // });
+    // this.route.snapshot.params['filter'] ? this.filter = this.route.snapshot.params['filter'] : this.filter = '';
+    // this.filter = this.route.snapshot.params['filter'] || '';
+    this.route.params.subscribe(params => {
+      this.filter = params['filter'] || '';
+    });
+  };
 
   addToCart(product: IProduct) {
     //this.cart.push(product);
