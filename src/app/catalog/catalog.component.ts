@@ -215,9 +215,12 @@ export class CatalogComponent {
     // });
     // this.route.snapshot.params['filter'] ? this.filter = this.route.snapshot.params['filter'] : this.filter = '';
     // this.filter = this.route.snapshot.params['filter'] || '';
-    this.route.params.subscribe(params => {
+    // this.route.params.subscribe(params => {
+    //   this.filter = params['filter'] || '';
+    // });
+    this.route.queryParams.subscribe(params => {
       this.filter = params['filter'] || '';
-    });
+    });    
   };
 
   addToCart(product: IProduct) {

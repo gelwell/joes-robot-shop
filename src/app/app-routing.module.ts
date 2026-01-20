@@ -9,7 +9,8 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
 const routes: Routes = [
   // Define your routes here
   { path: 'home', component: HomeComponent, title:"Home - Joes's Robot Shop" },
-  { path: 'catalog/:filter', component: CatalogComponent, title:"Catalog - Joes's Robot Shop" },
+  //{ path: 'catalog/:filter', component: CatalogComponent, title:"Catalog - Joes's Robot Shop" },
+  { path: 'catalog', component: CatalogComponent, title:"Catalog - Joes's Robot Shop" },
   { path: 'cart', component: CartComponent , title: "Cart - Joes's Robot Shop" },
   { path: 'product/:id', component: ProductDetailsComponent, title: "Product Details - Joes's Robot Shop" },
   { path: '', redirectTo: '/home', pathMatch: 'full' }     
