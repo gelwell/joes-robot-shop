@@ -24,5 +24,10 @@ export class SignInComponent {
       // error: (err) => console.error('Sign-in failed', err)
       error: (err) => this.signInError=true
       });
+
+      // for testing only
+    this.router.navigate(['/catalog'])
+    this.signInError=false;
+
     }
 }
