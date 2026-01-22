@@ -1,12 +1,14 @@
 <div class="container">
-  <form class="form" (ngSubmit)="signIn()">
+  <form class="form" #signInForm="ngForm" (ngSubmit)="signIn()">
     <img class="logo" src="/assets/images/logo.png" />
     <div class="sign-in">Sign In</div>
     <div class="sub-text">to acquire awesome bots</div>
-    <input name="email" [(ngModel)]="credentials.email" placeholder="Email Address" type="text" />
-    <input name="password" [(ngModel)]="credentials.password" placeholder="Password" type="password" />
+    <input name="email" required #EmailInput="ngModel" [(ngModel)]="credentials.email" placeholder="Email Address" type="text" />
+    <em class="error" *ngIf="EmailInput.invalid && EmailInput.touched">Email is required</em>
+    <input name="password" required #PasswordInput="ngModel" [(ngModel)]="credentials.password" placeholder="Password" type="password" />
+      <em class="error" *ngIf="PasswordInput.invalid && PasswordInput.touched">Password is required</em>
     <div class="buttons">
-      <button type="submit" class="button cta">
+      <button type="submit" [disabled]="signInForm.invalid" class="button cta">
         Sign In
       </button>
     </div>
@@ -15,3 +17,31 @@
     </div>
   </form>
 </div>
+<!-- <div>
+  <b>******** Control Info ********</b>
+  <br />
+    **** <br />
+  Form Value: {{signInForm.value}} <br />
+  Form Invalid: {{signInForm.invalid}} <br />
+  Form dirty: {{signInForm.dirty}} <br />
+  Form pristine: {{signInForm.pristine}} <br />
+  Form touched: {{signInForm.touched}} <br />
+  Form untouched: {{signInForm.untouched}} <br />
+  Form submitted: {{signInForm.submitted}} <br />
+  **** <br />
+  Password Input Value: {{PasswordInput.value}} <br />
+  Password Input Invalid: {{PasswordInput.invalid}} <br />
+  Password Input dirty: {{PasswordInput.dirty}} <br />
+  Password Input pristine: {{PasswordInput.pristine}} <br />
+  Password Input touched: {{PasswordInput.touched}} <br />
+  Password Input untouched: {{PasswordInput.untouched}} <br />
+  **** <br />
+  Email Input Value: {{EmailInput.value}} <br />
+  Email Input Invalid: {{EmailInput.invalid}} <br />
+  Email Input dirty: {{EmailInput.dirty}} <br />
+  Email Input pristine: {{EmailInput.pristine}} <br />
+  Email Input touched: {{EmailInput.touched}} <br />
+  Email Input untouched: {{EmailInput.untouched}} <br />
+  **** <br />
+  ********************************* <br />
+</div> -->
