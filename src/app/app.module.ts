@@ -12,8 +12,9 @@ import { CartComponent } from './cart/cart.component';
 import { CartService } from './cart/cart.service';
 import { AppRoutingModule } from './app-routing.module';
 import { RouterModule } from "@angular/router"; // Import HttpClientModule
-import { SignInComponent } from './user/sign-in/sign-in.component';
-import { TemplateFormControlsComponent } from './user/template-form-controls/template-form-controls.component';
+import { UserModule } from './user/user.module';
+// import { SignInComponent } from './user/sign-in/sign-in.component';
+// import { TemplateFormControlsComponent } from './user/template-form-controls/template-form-controls.component';
 
 
 @NgModule({
@@ -23,16 +24,17 @@ import { TemplateFormControlsComponent } from './user/template-form-controls/tem
     CatalogComponent,
     SiteHeaderComponent,
     ProductDetailsComponent,
-    CartComponent,
-    SignInComponent,
-    TemplateFormControlsComponent
+    CartComponent
+    // SignInComponent,
+    // TemplateFormControlsComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
     RouterModule,
-    FormsModule
+    FormsModule,
+    UserModule
 ],
   providers: [CartService],
   bootstrap: [AppComponent]
