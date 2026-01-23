@@ -3,15 +3,23 @@
     <img class="logo" src="/assets/images/logo.png" />
     <div class="sign-in">Sign In</div>
     <div class="sub-text">to acquire awesome bots</div>
+    
     <input name="email" required #EmailInput="ngModel" [(ngModel)]="credentials.email" placeholder="Email Address" type="text" />
-    <em class="error" *ngIf="EmailInput.invalid && EmailInput.touched">Email is required</em>
+    <em class="error" *ngIf="EmailInput.errors?.['required'] && EmailInput.touched">Email is required</em>
+    <em class="error" *ngIf="EmailInput.errors?.['email'] && EmailInput.touched">Must be a valid email format</em>
+    <!-- <em class="error" *ngIf="EmailInput.invalid && EmailInput.touched">Email is required</em> -->
+
     <input name="password" required #PasswordInput="ngModel" [(ngModel)]="credentials.password" placeholder="Password" type="password" />
       <em class="error" *ngIf="PasswordInput.invalid && PasswordInput.touched">Password is required</em>
-    <div class="buttons">
+      <!-- <em class="error" *ngIf="PasswordInput.errors?.['required'] && PasswordInput.touched">Password is required</em>
+      <em class="error" *ngIf="PasswordInput.errors?.['password'] && PasswordInput.touched">Must be a valid password</em> -->
+
+      <div class="buttons">
       <button type="submit" [disabled]="signInForm.invalid" class="button cta">
         Sign In
       </button>
     </div>
+    
     <div class="signInError" *ngIf="signInError">
       Sign-in failed. Please check your credentials and try again.
     </div>

@@ -13,6 +13,7 @@ import { CartService } from './cart/cart.service';
 import { AppRoutingModule } from './app-routing.module';
 import { RouterModule } from "@angular/router"; // Import HttpClientModule
 import { SignInComponent } from './user/sign-in/sign-in.component';
+import { TemplateFormControlsComponent } from './user/template-form-controls/template-form-controls.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { SignInComponent } from './user/sign-in/sign-in.component';
     SiteHeaderComponent,
     ProductDetailsComponent,
     CartComponent,
-    SignInComponent
+    SignInComponent,
+    TemplateFormControlsComponent
   ],
   imports: [
     BrowserModule,
