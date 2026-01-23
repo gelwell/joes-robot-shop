@@ -1,16 +1,16 @@
 <div class="product">
     <div class="product-details">
-        <img [src]="getImageUrl(product)" [alt]="product?.name" [title]="product?.name" />
+        <img [src]="getImageUrl(product)" [alt]="product.name" [title]="product.name" />
         <div class="product-info">
-            <div class="name">{{product?.name}}</div>
-            <div class="description">{{product?.description}}</div>
-            <div class="category">Part Type: {{product?.category}}</div>
+            <div class="name">{{product.name}}</div>
+            <div class="description">{{product.description}}</div>
+            <div class="category">Part Type: {{product.category}}</div>
         </div>
     </div>
     <div class="price">
-        <div class="discPrice" style="font-weight: bolder;" [ngStyle]="{'color': product.discount > 0 ? 'red' : ''}"
+        <div class="discPrice" [ngStyle]="{'color': product.discount > 0 ? 'red' : ''}"
             [ngClass]="getDiscountedClasses(product)">
-            {{product?.price | currency:"USD"}}
+            {{product.price | currency:"USD"}}
         </div>
         <div class="discount" *ngIf="product.discount > 0">
             <div>{{(product.price * (1 - product.discount)) | currency:"USD"}}</div>
